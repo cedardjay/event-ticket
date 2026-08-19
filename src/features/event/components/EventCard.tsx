@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export type EventCardData = {
   id: string
   title: string
@@ -12,8 +14,9 @@ export function EventCard({ event, size = "small" }: { event: EventCardData; siz
   const isLarge = size === "large"
 
   return (
-    <div
-      className={`relative rounded-xl overflow-hidden group cursor-pointer border border-outline-variant h-full transition-shadow ${
+    <Link
+      to={`/events/${event.id}`}
+      className={`relative rounded-xl overflow-hidden group cursor-pointer border border-outline-variant h-full block transition-shadow ${
         isLarge ? "pulse-shadow" : "hover:pulse-shadow"
       }`}
     >
@@ -46,6 +49,6 @@ export function EventCard({ event, size = "small" }: { event: EventCardData; siz
           <span className="font-label-lg text-white">{event.price}</span>
         )}
       </div>
-    </div>
+    </Link>
   )
 }

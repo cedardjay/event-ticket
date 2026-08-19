@@ -1,6 +1,11 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import { SideNav } from "./SideNav"
+
+const pillLinkClass = ({ isActive }: { isActive: boolean }) =>
+  isActive
+    ? "text-primary bg-surface font-label-lg px-4 py-1.5 rounded-full shadow-sm"
+    : "text-on-surface-variant font-label-lg px-4 py-1.5 rounded-full hover:text-primary transition-colors"
 
 export function Header() {
   const [navOpen, setNavOpen] = useState(false)
@@ -14,28 +19,19 @@ export function Header() {
             Event-Ticket
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1 bg-on-surface/[0.03] border border-outline-variant/50 rounded-full px-1 py-1">
-            <Link
-              to="/"
-              className="text-primary bg-surface font-label-lg px-4 py-1.5 rounded-full shadow-sm"
-            >
+          <nav className="hidden lg:flex items-center gap-1 bg-on-surface/[0.03] border border-outline-variant/50 rounded-full px-1 py-1">
+            <NavLink to="/" end className={pillLinkClass}>
               Discover
-            </Link>
-            <Link
-              to="/events"
-              className="text-on-surface-variant font-label-lg px-4 py-1.5 rounded-full hover:text-primary transition-colors"
-            >
+            </NavLink>
+            <NavLink to="/events" className={pillLinkClass}>
               Events
-            </Link>
-            <Link
-              to="/organizers"
-              className="text-on-surface-variant font-label-lg px-4 py-1.5 rounded-full hover:text-primary transition-colors"
-            >
+            </NavLink>
+            <NavLink to="/organizers" className={pillLinkClass}>
               Organizers
-            </Link>
+            </NavLink>
           </nav>
 
-          <div className="hidden md:flex items-center gap-sm">
+          <div className="hidden lg:flex items-center gap-sm">
             <Link
               to="/admin/login"
               className="font-label-lg text-primary px-4 py-2 rounded-full hover:bg-primary/5 transition-colors"
@@ -52,7 +48,7 @@ export function Header() {
 
           <button
             onClick={() => setNavOpen(true)}
-            className="md:hidden text-primary w-10 h-10 flex items-center justify-center rounded-full hover:bg-primary/5 transition-colors"
+            className="lg:hidden text-primary w-10 h-10 flex items-center justify-center rounded-full hover:bg-primary/5 transition-colors"
             aria-label="Open menu"
           >
             <span className="material-symbols-outlined">menu</span>

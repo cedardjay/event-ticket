@@ -1,5 +1,5 @@
 import { HeroMarquee } from "../../components/ui/HeroMarquee"
-import { EventCard, type EventCardData } from "../../components/ui/EventCard"
+import { EventCard, type EventCardData } from "./components/EventCard"
 
 const heroImages = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAoJ0PTyjGAhyPEB5-3JU3U0HEZwIEXDNtJfjc5MsjFQbU2KqklgvWK1H7MqyECUC8SjwIJtIuTKJHx-A5sW_UTHDYw8RIv35dOIZzCD6jQJpKkYhyz-3Y8HZH5hC-7kWjeU6fJGwKvithUVkiFe5meEe5NYaTYxmptQbf3YOR3n0m5DwyAd8THPLTyZmTkd5ahWiuDFShZlphOPNVhRAj6rxhkdhpzeXL-21zHUHaqZje9HvGsJ1kW",
