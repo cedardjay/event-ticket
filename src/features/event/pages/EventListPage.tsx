@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react"
-import { EventCard } from "./components/EventCard"
-import type { EventCardData } from "./components/EventCard"
+import { EventCard } from "../components/EventCard"
+import type { EventCardData } from "../components/EventCard"
 
 const categories = ["All", "Music", "Tech", "Workshops", "Sports", "Arts & Culture"]
 
@@ -9,7 +9,7 @@ const allEvents: (EventCardData & { category: string })[] = [
   {
     id: "1",
     title: "Douala Afrobeats Festival 2024",
-    date: "Oct 15, 2024",
+    date: "Oct 15, 2026",
     venue: "Parcours Vita",
     price: "XAF 15,000",
     image:
@@ -20,7 +20,7 @@ const allEvents: (EventCardData & { category: string })[] = [
   {
     id: "2",
     title: "Cameroon Tech Summit",
-    date: "Nov 2",
+    date: "Oct 15, 2026",
     venue: "Yaoundé Conference Centre",
     price: "Free",
     image:

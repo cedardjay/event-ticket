@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { PublicLayout } from "./components/layout/PublicLayout"
-import { DiscoverPage } from "./features/event/DiscoverPage"
-import { EventListPage } from "./features/event/EventListPage"
-
+import { PublicLayout } from "./layouts/PublicLayout"
+import { DiscoverPage } from "./features/event/pages/DiscoverPage"
+import { EventListPage } from "./features/event/pages/EventListPage"
+import { EventDetailsPage } from "./features/event/pages/EventDetailsPage"
+import { CheckoutPage } from "./features/ckeckout/pages/CheckoutPage"
 // Admin pages + AdminLayout get added here later, behind a protected route wrapper.
 
 export default function App() {
@@ -12,6 +13,8 @@ export default function App() {
         <Route element={<PublicLayout />}>
           <Route path="/" element={<DiscoverPage />} />
           <Route path="/events" element={<EventListPage />} />
+          <Route path="/events/:id" element={<EventDetailsPage />} />
+          <Route path="/checkout/:id" element={<CheckoutPage />} />
         </Route>
 
         {/* <Route path="/admin/login" element={<AdminLoginPage />} /> */}

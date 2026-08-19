@@ -1,5 +1,5 @@
-import { HeroMarquee } from "../../components/ui/HeroMarquee"
-import { EventCard, type EventCardData } from "./components/EventCard"
+import { HeroMarquee } from "../../../components/ui/HeroMarquee"
+import { EventCard, type EventCardData } from "../components/EventCard"
 
 const heroImages = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAoJ0PTyjGAhyPEB5-3JU3U0HEZwIEXDNtJfjc5MsjFQbU2KqklgvWK1H7MqyECUC8SjwIJtIuTKJHx-A5sW_UTHDYw8RIv35dOIZzCD6jQJpKkYhyz-3Y8HZH5hC-7kWjeU6fJGwKvithUVkiFe5meEe5NYaTYxmptQbf3YOR3n0m5DwyAd8THPLTyZmTkd5ahWiuDFShZlphOPNVhRAj6rxhkdhpzeXL-21zHUHaqZje9HvGsJ1kW",
@@ -14,7 +14,7 @@ const trendingEvents: EventCardData[] = [
   {
     id: "1",
     title: "Douala Afrobeats Festival 2024",
-    date: "Oct 15, 2024",
+    date: "Oct 15, 2026",
     venue: "Parcours Vita",
     price: "XAF 15,000",
     image: heroImages[0],
@@ -23,7 +23,7 @@ const trendingEvents: EventCardData[] = [
   {
     id: "2",
     title: "Cameroon Tech Summit",
-    date: "Nov 2",
+    date: "Oct 15, 2026",
     venue: "Yaoundé Conference Centre",
     price: "Free",
     image: heroImages[1],
