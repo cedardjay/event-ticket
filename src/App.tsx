@@ -15,9 +15,10 @@ export default function App() {
           <Route path="/" element={<DiscoverPage />} />
           <Route path="/events" element={<EventListPage />} />
           <Route path="/events/:id" element={<EventDetailsPage />} />
-          <Route path="/checkout/:id" element={<CheckoutPage />} />
-          <Route path="/checkout/:id/pay" element={<PaymentGatewayPage />} />
         </Route>
+        
+        <Route path="/checkout/:id" element={<CheckoutPage />} />
+        <Route path="/checkout/:id/pay" element={<PaymentGatewayPage />} />
 
         {/* <Route path="/admin/login" element={<AdminLoginPage />} /> */}
         {/* <Route element={<ProtectedAdminRoute />}>

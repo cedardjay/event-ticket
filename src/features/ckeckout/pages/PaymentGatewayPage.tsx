@@ -1,12 +1,12 @@
 import { useState } from "react"
 import { useLocation, useNavigate, useParams, Link } from "react-router-dom"
 import { IwomipayModal } from "../components/IwomipayModal"
-import type { EventDetails } from "../../event/types"
+import type { Event } from "../../event/components/EventCard"
 import type { CheckoutFormData } from "../types"
 
 type LocationState = {
-  event?: EventDetails
-  quantities?: Record<string, number>
+  event?: Event
+  quantity?: number
   formData?: CheckoutFormData
 }
 
@@ -22,9 +22,9 @@ export function PaymentGatewayPage() {
   const [isProcessing, setIsProcessing] = useState(false)
 
   const state = (location.state as LocationState) ?? {}
-  const { event, quantities, formData } = state
+  const { event, quantity, formData } = state
 
-  if (!event || !quantities || !formData) {
+  if (!event || !quantity || !formData) {
     return (
       <div className="w-full max-w-xl mx-auto px-margin-mobile md:px-margin-desktop py-xl text-center">
         <p className="font-body-lg text-on-surface-variant mb-md">
@@ -37,18 +37,18 @@ export function PaymentGatewayPage() {
     )
   }
 
-  const total = event.ticketTypes.reduce((sum, t) => sum + t.price * (quantities[t.id] ?? 0), 0)
+  const total = event.price * quantity
 
-  function handleSelectMethod(_method: "mtn" | "orange") {
+  function handleConfirmPayment(_method: "mtn" | "orange", _accountNumber: string) {
     setIsProcessing(true)
-    // TODO: call IWOMIPAY's collect/checkout-init endpoint here with the chosen method.
-    // IWOMIPAY returns a redirect URL (or a USSD prompt confirmation) to complete payment.
-    // On success, IWOMIPAY notifies you via webhook — verify status,
-    // then send the user to the ticket confirmation page.
+    // TODO: call IWOMIPAY's collect/checkout-init endpoint here with the chosen
+    // method + account number. IWOMIPAY triggers a USSD/app prompt on that number
+    // to confirm payment, then notifies you via webhook once it's completed.
+    // Verify status there, then send the user to the ticket confirmation page.
     setTimeout(() => {
       setIsProcessing(false)
       setModalOpen(false)
-      navigate(`/ticket/${id}`, { state: { event, quantities, formData } })
+      navigate(`/ticket/${id}`, { state: { event, quantity, formData } })
     }, 1500)
   }
 
@@ -101,7 +101,7 @@ export function PaymentGatewayPage() {
       <IwomipayModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        onSelectMethod={handleSelectMethod}
+        onSubmitPayment={handleConfirmPayment}
         event={event}
         formData={formData}
         total={total}
