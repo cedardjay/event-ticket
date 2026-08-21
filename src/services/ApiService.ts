@@ -22,14 +22,6 @@ export default class ApiService {
     }
 
 
-    static async getUserProfile() {
-        const response = await axios.get(`${this.BASE_URL}/users/get-logged-in-profile-info`, {
-            headers: this.getHeader()
-        })
-        return response.data
-    }
-
-
 
 
     /* Get all events (public) */

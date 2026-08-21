@@ -3,7 +3,55 @@ import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { OrderSummary } from "../components/OrderSummary"
 import { CheckoutForm } from "../components/CheckoutForm"
 import type { CheckoutFormData } from "../types"
-import { allEvents } from "../../event/components/EventCard"
+import { Event } from "../../event/components/EventCard"
+
+//import ApiService from "../../../services/ApiService"
+
+//const [allEvents, setAllEvents] = useState<Event[]>([])
+
+/*useEffect(() => {
+  ApiService.getAllEvents().then(setAllEvents)
+}, [])*/
+
+
+const allEvents: Event[] = [
+  {
+    id: "1",
+    title: "Cameroon Tech Summit",
+    description:
+      "Cameroon Tech Summit is a premier technology and innovation event bringing together developers, entrepreneurs, startups, investors, tech enthusiasts, and industry leaders from across Cameroon and beyond. The summit features inspiring talks, practical workshops, networking opportunities, product demonstrations, and discussions on the future of technology in Africa.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuA379-pq3mQ9BQfxUkxpVAVuf-VCkbyhlYEIvD3lRc1ZiYRw6t2lbd_orSccyQMpX_5BPvAZUG7DMArAhptBTrNd5w4pxZz7G9k50juVvLCIggBY4_tyAgs5ICGx23678x_tqrAfnozSysLGkp1BV3WYO5kFicp8YbRYDIIqvc-U8KPyzBis2GIT4TEUBEJBHAKFkS1jidXA8caCjw_AO7oOUB0vTFjTGXbmlG8d0TpQDAHT5WdDKKt",
+    startDate: "2026-10-15T19:00:00",
+    endDate: "2026-10-16T02:00:00",
+    capacity: 200,
+    status: "published",
+    location: "Palais des Congrès de Yaoundé",
+    city: "Yaounde",
+    organiserId: "2",
+    price: 5000,
+
+  },
+  {
+    id: "1",
+    title: "Cameroon Tech Summit",
+    description:
+      "Cameroon Tech Summit is a premier technology and innovation event bringing together developers, entrepreneurs, startups, investors, tech enthusiasts, and industry leaders from across Cameroon and beyond. The summit features inspiring talks, practical workshops, networking opportunities, product demonstrations, and discussions on the future of technology in Africa.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuA379-pq3mQ9BQfxUkxpVAVuf-VCkbyhlYEIvD3lRc1ZiYRw6t2lbd_orSccyQMpX_5BPvAZUG7DMArAhptBTrNd5w4pxZz7G9k50juVvLCIggBY4_tyAgs5ICGx23678x_tqrAfnozSysLGkp1BV3WYO5kFicp8YbRYDIIqvc-U8KPyzBis2GIT4TEUBEJBHAKFkS1jidXA8caCjw_AO7oOUB0vTFjTGXbmlG8d0TpQDAHT5WdDKKt",
+    startDate: "2026-10-15T19:00:00",
+    endDate: "2026-10-16T02:00:00",
+    capacity: 200,
+    status: "published",
+    location: "Palais des Congrès de Yaoundé",
+    city: "Yaounde",
+    organiserId: "2",
+    price: 5000,
+
+  }
+]
+
+
 
 export function CheckoutPage() {
   const { id } = useParams()

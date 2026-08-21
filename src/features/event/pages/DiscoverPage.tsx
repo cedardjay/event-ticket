@@ -1,6 +1,13 @@
 import { HeroMarquee } from "../../../components/ui/HeroMarquee"
-import { EventCard, allEvents, type Event } from "../components/EventCard"
+import { EventCard,  type Event } from "../components/EventCard"
 //import ApiService from "../../../services/ApiService"
+
+//const [allEvents, setAllEvents] = useState<Event[]>([])
+
+/*useEffect(() => {
+  ApiService.getAllEvents().then(setAllEvents)
+}, [])*/
+
 
 const heroImages = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAoJ0PTyjGAhyPEB5-3JU3U0HEZwIEXDNtJfjc5MsjFQbU2KqklgvWK1H7MqyECUC8SjwIJtIuTKJHx-A5sW_UTHDYw8RIv35dOIZzCD6jQJpKkYhyz-3Y8HZH5hC-7kWjeU6fJGwKvithUVkiFe5meEe5NYaTYxmptQbf3YOR3n0m5DwyAd8THPLTyZmTkd5ahWiuDFShZlphOPNVhRAj6rxhkdhpzeXL-21zHUHaqZje9HvGsJ1kW",
@@ -8,11 +15,47 @@ const heroImages = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuATZJWfDrz2HRBI4SGFKiVyKGJwBewF7SP_jNTICANKP8uHmW9FlqN6ECS3GVM2Rynx1tBQRsLQrbqk7dFvyyIk2yOULiQ1xx-ac1pbYAJqVaa5Pyb2W5z_bZiYl7J-8CoglX-Rpw5MIWEWjGz8n9Df4QZUEC_mNmJWZkRW5cul0Q-_5vfXLeAHAKDPqkVa33BFA50_wvcGC4kuCkmDx67d-g7xj4AyxTsvZlmBQ-Mtc3GZBmYdhpVO",
 ]
 
+
+const allEvents: Event[] = [
+  {
+    id: "1",
+    title: "Cameroon Tech Summit",
+    description:
+      "Cameroon Tech Summit is a premier technology and innovation event bringing together developers, entrepreneurs, startups, investors, tech enthusiasts, and industry leaders from across Cameroon and beyond. The summit features inspiring talks, practical workshops, networking opportunities, product demonstrations, and discussions on the future of technology in Africa.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuA379-pq3mQ9BQfxUkxpVAVuf-VCkbyhlYEIvD3lRc1ZiYRw6t2lbd_orSccyQMpX_5BPvAZUG7DMArAhptBTrNd5w4pxZz7G9k50juVvLCIggBY4_tyAgs5ICGx23678x_tqrAfnozSysLGkp1BV3WYO5kFicp8YbRYDIIqvc-U8KPyzBis2GIT4TEUBEJBHAKFkS1jidXA8caCjw_AO7oOUB0vTFjTGXbmlG8d0TpQDAHT5WdDKKt",
+    startDate: "2026-10-15T19:00:00",
+    endDate: "2026-10-16T02:00:00",
+    capacity: 200,
+    status: "published",
+    location: "Palais des Congrès de Yaoundé",
+    city: "Yaounde",
+    organiserId: "2",
+    price: 5000,
+
+  },
+  {
+    id: "2",
+    title: "Cameroon Tech Summit",
+    description:
+      "Cameroon Tech Summit is a premier technology and innovation event bringing together developers, entrepreneurs, startups, investors, tech enthusiasts, and industry leaders from across Cameroon and beyond. The summit features inspiring talks, practical workshops, networking opportunities, product demonstrations, and discussions on the future of technology in Africa.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuA379-pq3mQ9BQfxUkxpVAVuf-VCkbyhlYEIvD3lRc1ZiYRw6t2lbd_orSccyQMpX_5BPvAZUG7DMArAhptBTrNd5w4pxZz7G9k50juVvLCIggBY4_tyAgs5ICGx23678x_tqrAfnozSysLGkp1BV3WYO5kFicp8YbRYDIIqvc-U8KPyzBis2GIT4TEUBEJBHAKFkS1jidXA8caCjw_AO7oOUB0vTFjTGXbmlG8d0TpQDAHT5WdDKKt",
+    startDate: "2026-10-15T19:00:00",
+    endDate: "2026-10-16T02:00:00",
+    capacity: 200,
+    status: "published",
+    location: "Palais des Congrès de Yaoundé",
+    city: "Yaounde",
+    organiserId: "2",
+    price: 5000,
+
+  }
+]
+
+
+
 const trendingEvents: Event[] = allEvents.slice(-3);
-
-//wired to the backend
-//const trendingEvents: Event[] = ApiService.allEvents.slice(-3);
-
 
 export function DiscoverPage() {
   return (
