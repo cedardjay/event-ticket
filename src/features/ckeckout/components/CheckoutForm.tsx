@@ -27,14 +27,14 @@ export function CheckoutForm({ data, onChange }: CheckoutFormProps) {
       </div>
 
       <div className="flex flex-col gap-xs">
-        <label className="font-label-lg text-on-surface" htmlFor="phone">
+        <label className="font-label-lg text-on-surface" htmlFor="phoneNumber">
           Phone number
         </label>
         <input
           id="phone"
           type="tel"
-          value={data.phone}
-          onChange={(e) => handleField("phone", e.target.value)}
+          value={data.phoneNumber}
+          onChange={(e) => handleField("phoneNumber", e.target.value)}
           placeholder="e.g. 6XX XX XX XX"
           className="w-full h-[48px] px-sm rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all"
         />

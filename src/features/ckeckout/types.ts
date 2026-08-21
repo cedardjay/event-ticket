@@ -1,5 +1,5 @@
 export type CheckoutFormData = {
   fullName: string
-  phone: string
+  phoneNumber: string
   email: string
 }

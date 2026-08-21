@@ -3,6 +3,7 @@ import { useLocation, useNavigate, useParams, Link } from "react-router-dom"
 import { IwomipayModal } from "../components/IwomipayModal"
 import type { Event } from "../../event/components/EventCard"
 import type { CheckoutFormData } from "../types"
+import ApiService from "../../../services/ApiService"
 
 type LocationState = {
   event?: Event
@@ -37,6 +38,8 @@ export function PaymentGatewayPage() {
     )
   }
 
+
+  
   const total = event.price * quantity
 
   function handleConfirmPayment(_method: "mtn" | "orange", _accountNumber: string) {
@@ -48,9 +51,12 @@ export function PaymentGatewayPage() {
     setTimeout(() => {
       setIsProcessing(false)
       setModalOpen(false)
-      navigate(`/ticket/${id}`, { state: { event, quantity, formData } })
+      navigate(`/order/${id}`, { state: { event, quantity, formData } })
     }, 1500)
   }
+
+
+
 
   return (
     <div className="w-full max-w-xl mx-auto px-margin-mobile md:px-margin-desktop py-lg flex flex-col items-center text-center gap-md">

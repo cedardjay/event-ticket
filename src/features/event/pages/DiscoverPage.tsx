@@ -1,6 +1,8 @@
 import { HeroMarquee } from "../../../components/ui/HeroMarquee"
 import { EventCard, type Event } from "../components/EventCard"
 import { allEvents } from "../components/EventCard"
+//import ApiService from "../../../services/ApiService"
+
 const heroImages = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAoJ0PTyjGAhyPEB5-3JU3U0HEZwIEXDNtJfjc5MsjFQbU2KqklgvWK1H7MqyECUC8SjwIJtIuTKJHx-A5sW_UTHDYw8RIv35dOIZzCD6jQJpKkYhyz-3Y8HZH5hC-7kWjeU6fJGwKvithUVkiFe5meEe5NYaTYxmptQbf3YOR3n0m5DwyAd8THPLTyZmTkd5ahWiuDFShZlphOPNVhRAj6rxhkdhpzeXL-21zHUHaqZje9HvGsJ1kW",
   "https://lh3.googleusercontent.com/aida-public/AB6AXuA379-pq3mQ9BQfxUkxpVAVuf-VCkbyhlYEIvD3lRc1ZiYRw6t2lbd_orSccyQMpX_5BPvAZUG7DMArAhptBTrNd5w4pxZz7G9k50juVvLCIggBY4_tyAgs5ICGx23678x_tqrAfnozSysLGkp1BV3WYO5kFicp8YbRYDIIqvc-U8KPyzBis2GIT4TEUBEJBHAKFkS1jidXA8caCjw_AO7oOUB0vTFjTGXbmlG8d0TpQDAHT5WdDKKt",
@@ -9,9 +11,11 @@ const heroImages = [
 
 const categories = ["All", "Music", "Tech", "Workshops", "Sports", "Arts & Culture"]
 
-// Replace with data fetched from your events API
-
 const trendingEvents: Event[] = allEvents.slice(-3);
+
+//wired to the backend
+//const trendingEvents: Event[] = ApiService.allEvents.slice(-3);
+
 
 export function DiscoverPage() {
   return (

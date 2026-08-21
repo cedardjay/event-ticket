@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom"
+import { NavLink} from "react-router-dom"
 
 type SideNavProps = {
   open: boolean
@@ -48,26 +48,10 @@ export function SideNav({ open, onClose }: SideNavProps) {
           <NavLink to="/events" onClick={onClose} className={sideLinkClass}>
             Events
           </NavLink>
-          <NavLink to="/organizers" onClick={onClose} className={sideLinkClass}>
-            Organizers
+          <NavLink to="/organizer" onClick={onClose} className={sideLinkClass}>
+            Organizer
           </NavLink>
 
-          <div className="flex flex-col gap-sm mt-md pt-md border-t border-outline-variant/60">
-            <Link
-              to="/admin/login"
-              onClick={onClose}
-              className="text-center font-label-lg text-primary px-4 py-2.5 rounded-full hover:bg-primary/5 transition-colors"
-            >
-              Login
-            </Link>
-            <Link
-              to="/become-organizer"
-              onClick={onClose}
-              className="text-center font-label-lg text-on-primary bg-primary px-4 py-2.5 rounded-full hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all"
-            >
-              Become an Organizer
-            </Link>
-          </div>
         </nav>
       </aside>
     </>

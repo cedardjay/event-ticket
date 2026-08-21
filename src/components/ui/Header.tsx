@@ -31,20 +31,7 @@ export function Header() {
             </NavLink>
           </nav>
 
-          <div className="hidden lg:flex items-center gap-sm">
-            <Link
-              to="/admin/login"
-              className="font-label-lg text-primary px-4 py-2 rounded-full hover:bg-primary/5 transition-colors"
-            >
-              Login
-            </Link>
-            <Link
-              to="/become-organizer"
-              className="font-label-lg text-on-primary bg-primary px-5 py-2 rounded-full hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all"
-            >
-              Become an Organizer
-            </Link>
-          </div>
+          
 
           <button
             onClick={() => setNavOpen(true)}

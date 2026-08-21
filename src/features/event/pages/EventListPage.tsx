@@ -1,5 +1,9 @@
 import { EventCard } from "../components/EventCard"
 import { allEvents } from "../components/EventCard";
+//import ApiService from "../../../services/ApiService";
+
+//wire to the backend
+//const allEvents: Event[] = ApiService.allEvents.slice(-3);
 
 export function EventListPage() {
   return (

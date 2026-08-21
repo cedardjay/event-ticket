@@ -13,7 +13,7 @@ export function CheckoutPage() {
   const event = allEvents.find((e) => e.id === id)
   const quantity: number = (location.state as { quantity?: number })?.quantity ?? 1
 
-  const [formData, setFormData] = useState<CheckoutFormData>({ fullName: "", phone: "", email: "" })
+  const [formData, setFormData] = useState<CheckoutFormData>({ fullName: "", phoneNumber: "", email: "" })
 
   if (!event) {
     return (
@@ -24,7 +24,7 @@ export function CheckoutPage() {
   }
 
   const total = event.price * quantity
-  const isFormValid = formData.fullName.trim() && formData.phone.trim() && formData.email.trim()
+  const isFormValid = formData.fullName.trim() && formData.phoneNumber.trim() && formData.email.trim()
 
   function handleContinue() {
     navigate(`/checkout/${id}/pay`, { state: { event, quantity, formData } })
