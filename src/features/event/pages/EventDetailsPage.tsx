@@ -1,14 +1,10 @@
 import { useMemo, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { Event } from "../components/EventCard";
-//import ApiService from "../../../services/ApiService"
+import { Event, EventCard } from "../components/EventCard";
+import { useEffect } from "react";
+import ApiService from "../../../services/ApiService"
 
-//const [allEvents, setAllEvents] = useState<Event[]>([])
-
-/*useEffect(() => {
-  ApiService.getAllEvents().then(setAllEvents)
-}, [])*/
-
+/*
 const allEvents: Event[] = [
   {
     id: "1",
@@ -45,7 +41,7 @@ const allEvents: Event[] = [
 
   }
 ]
-
+*/
 
 function formatDateRange(startISO: string, endISO: string) {
   const start = new Date(startISO)
@@ -67,6 +63,15 @@ function formatXAF(amount: number) {
 }
 
 export function EventDetailsPage() {
+
+
+const [allEvents, setAllEvents] = useState<Event[]>([])
+
+useEffect(() => {
+  ApiService.allEvents().then(setAllEvents)
+}, [])
+
+
   const { id } = useParams()
   const navigate = useNavigate()
   const event = allEvents.find((e) => e.id === id)
@@ -100,7 +105,7 @@ export function EventDetailsPage() {
     <div className="w-full max-w-5xl mx-auto px-margin-mobile md:px-margin-desktop py-lg pb-32">
       {/* Flyer */}
       <div className="w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden mb-lg">
-        <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
+              <EventCard event={event} size="small" />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">

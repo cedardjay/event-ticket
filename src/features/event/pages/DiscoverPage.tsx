@@ -1,12 +1,8 @@
 import { HeroMarquee } from "../../../components/ui/HeroMarquee"
-import { EventCard,  type Event } from "../components/EventCard"
-//import ApiService from "../../../services/ApiService"
+import { EventCard, type Event } from "../components/EventCard"
+import { useState, useEffect } from "react"
+import ApiService from "../../../services/ApiService"
 
-//const [allEvents, setAllEvents] = useState<Event[]>([])
-
-/*useEffect(() => {
-  ApiService.getAllEvents().then(setAllEvents)
-}, [])*/
 
 
 const heroImages = [
@@ -15,7 +11,7 @@ const heroImages = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuATZJWfDrz2HRBI4SGFKiVyKGJwBewF7SP_jNTICANKP8uHmW9FlqN6ECS3GVM2Rynx1tBQRsLQrbqk7dFvyyIk2yOULiQ1xx-ac1pbYAJqVaa5Pyb2W5z_bZiYl7J-8CoglX-Rpw5MIWEWjGz8n9Df4QZUEC_mNmJWZkRW5cul0Q-_5vfXLeAHAKDPqkVa33BFA50_wvcGC4kuCkmDx67d-g7xj4AyxTsvZlmBQ-Mtc3GZBmYdhpVO",
 ]
 
-
+/*
 const allEvents: Event[] = [
   {
     id: "1",
@@ -52,12 +48,19 @@ const allEvents: Event[] = [
 
   }
 ]
+*/
 
 
-
-const trendingEvents: Event[] = allEvents.slice(-3);
 
 export function DiscoverPage() {
+
+  const [allEvents, setAllEvents] = useState<Event[]>([])
+
+  useEffect(() => {
+    ApiService.allEvents().then(setAllEvents)
+  }, [])
+  const trendingEvents: Event[] = allEvents.slice(-3);
+
   return (
     <>
       {/* Hero */}
@@ -114,8 +117,7 @@ export function DiscoverPage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter h-[600px]">
           <div className="md:col-span-8 h-full">
-            <EventCard event={trendingEvents[0]} size="large" />
-          </div>
+            {trendingEvents[0] && <EventCard event={trendingEvents[0]} size="large" />}          </div>
           <div className="md:col-span-4 flex flex-col gap-gutter h-full">
             {trendingEvents.slice(1).map((event) => (
               <div key={event.id} className="flex-1">

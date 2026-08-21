@@ -3,17 +3,14 @@ import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { OrderSummary } from "../components/OrderSummary"
 import { CheckoutForm } from "../components/CheckoutForm"
 import type { CheckoutFormData } from "../types"
+import { useEffect } from "react"
 import { Event } from "../../event/components/EventCard"
-
-//import ApiService from "../../../services/ApiService"
-
-//const [allEvents, setAllEvents] = useState<Event[]>([])
-
-/*useEffect(() => {
-  ApiService.getAllEvents().then(setAllEvents)
-}, [])*/
+import ApiService from "../../../services/ApiService"
 
 
+
+
+/*
 const allEvents: Event[] = [
   {
     id: "1",
@@ -51,9 +48,16 @@ const allEvents: Event[] = [
   }
 ]
 
-
+*/
 
 export function CheckoutPage() {
+
+const [allEvents, setAllEvents] = useState<Event[]>([])
+
+useEffect(() => {
+  ApiService.allEvents().then(setAllEvents)
+}, [])
+
   const { id } = useParams()
   const location = useLocation()
   const navigate = useNavigate()

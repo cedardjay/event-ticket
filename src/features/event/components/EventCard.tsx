@@ -10,9 +10,12 @@ export type Event = {
   endDate: string
   price: number
   capacity: number
-  image?: string
+  imageUrl?: string
   organiserId: string
   status: string
+  currency: string,
+  createdAt: string,
+  updatedAt: string
 }
 
 
@@ -26,7 +29,7 @@ export function EventCard({ event, size = "small" }: { event: Event; size?: "lar
         }`}
     >
       <img
-        src={event.image}
+        src={event.imageUrl}
         alt={event.title}
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />

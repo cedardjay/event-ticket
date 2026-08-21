@@ -27,13 +27,13 @@ export default class ApiService {
     /* Get all events (public) */
     static async allEvents() {
         const response = await axios.get(`${this.BASE_URL}/events`);
-        return response.data;
+        return response.data.data;
     }
 
     /* Create a new event (organiser) */
     static async createEvent(payload: CreateEventPayload) {
         const response = await axios.post(`${this.BASE_URL}/events`, payload);
-        return response.data;
+        return response.data.data;
     }
 
 
@@ -43,8 +43,8 @@ export default class ApiService {
     }
 
     static async initiatePayment(payload: InitiatePaymentPayload) {
-        const response = await axios.post(`${this.BASE_URL}/payments/iwomi/initialise`, payload)
-        return response.data
+        const response = await axios.post(`${this.BASE_URL}/payments/iwomi/initiate`, payload)
+        return response.data.payment;
     }
 
 }

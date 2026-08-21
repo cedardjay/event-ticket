@@ -1,12 +1,10 @@
 import { EventCard, type Event } from "../components/EventCard"
-//import ApiService from "../../../services/ApiService"
+import { useEffect } from "react";
+import { useState } from "react";
+import ApiService from "../../../services/ApiService"
 
-//const [allEvents, setAllEvents] = useState<Event[]>([])
 
-/*useEffect(() => {
-  ApiService.getAllEvents().then(setAllEvents)
-}, [])*/
-
+/*
 const allEvents: Event[] = [
   {
     id: "1",
@@ -43,9 +41,16 @@ const allEvents: Event[] = [
 
   }
 ]
-
+*/
 
 export function EventListPage() {
+
+const [allEvents, setAllEvents] = useState<Event[]>([])
+
+useEffect(() => {
+  ApiService.allEvents().then(setAllEvents)
+}, [])
+
   return (
     <div className="w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
       <h1 className="font-headline-lg text-headline-lg mb-md">All Events</h1>
