@@ -6,6 +6,7 @@ import { EventDetailsPage } from "./features/event/pages/EventDetailsPage"
 import { CheckoutPage } from "./features/ckeckout/pages/CheckoutPage"
 import { PaymentGatewayPage } from "./features/ckeckout/pages/PaymentGatewayPage"
 import OrganiserPage from "./features/event/pages/OrganiserPage"
+import { OrderConfirmationPage } from "./features/ckeckout/pages/OrderConfirmationPage"
 
 // Admin pages + AdminLayout get added here later, behind a protected route wrapper.
 
@@ -21,6 +22,7 @@ export default function App() {
 
         <Route path="/checkout/:id" element={<CheckoutPage />} />
         <Route path="/checkout/:id/pay" element={<PaymentGatewayPage />} />
+        <Route path="/order/:id" element={<OrderConfirmationPage />} />
 
         {/* <Route path="/admin/login" element={<AdminLoginPage />} /> */}
         {/* <Route element={<ProtectedAdminRoute />}>

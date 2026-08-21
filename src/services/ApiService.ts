@@ -1,6 +1,14 @@
 import axios from "axios"
 import { CreateEventPayload } from "../features/event/pages/OrganiserPage";
 
+interface InitiatePaymentPayload {
+    eventId: string
+    quantity: number
+    fullName: string
+    email: string
+    phoneNumber: string
+}
+
 export default class ApiService {
 
     static BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -37,9 +45,14 @@ export default class ApiService {
     }
 
 
-    static async payticket(paymentPayload: PaymentPayload) {
-        const response = await axios.post(`${this.BASE_URL}/payments/iwomi`, paymentPayload);
+    static async getPaymentStatus(paymentId: string) {
+        const response = await axios.get(`${this.BASE_URL}/payments/${paymentId}/status`);
         return response.data;
+    }
+
+    static async initiatePayment(payload: InitiatePaymentPayload) {
+        const response = await axios.post(`${this.BASE_URL}/payments/iwomi/initialise`, payload)
+        return response.data
     }
 
 }

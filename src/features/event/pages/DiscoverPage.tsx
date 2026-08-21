@@ -1,6 +1,5 @@
 import { HeroMarquee } from "../../../components/ui/HeroMarquee"
-import { EventCard, type Event } from "../components/EventCard"
-import { allEvents } from "../components/EventCard"
+import { EventCard, allEvents, type Event } from "../components/EventCard"
 //import ApiService from "../../../services/ApiService"
 
 const heroImages = [
@@ -8,8 +7,6 @@ const heroImages = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuA379-pq3mQ9BQfxUkxpVAVuf-VCkbyhlYEIvD3lRc1ZiYRw6t2lbd_orSccyQMpX_5BPvAZUG7DMArAhptBTrNd5w4pxZz7G9k50juVvLCIggBY4_tyAgs5ICGx23678x_tqrAfnozSysLGkp1BV3WYO5kFicp8YbRYDIIqvc-U8KPyzBis2GIT4TEUBEJBHAKFkS1jidXA8caCjw_AO7oOUB0vTFjTGXbmlG8d0TpQDAHT5WdDKKt",
   "https://lh3.googleusercontent.com/aida-public/AB6AXuATZJWfDrz2HRBI4SGFKiVyKGJwBewF7SP_jNTICANKP8uHmW9FlqN6ECS3GVM2Rynx1tBQRsLQrbqk7dFvyyIk2yOULiQ1xx-ac1pbYAJqVaa5Pyb2W5z_bZiYl7J-8CoglX-Rpw5MIWEWjGz8n9Df4QZUEC_mNmJWZkRW5cul0Q-_5vfXLeAHAKDPqkVa33BFA50_wvcGC4kuCkmDx67d-g7xj4AyxTsvZlmBQ-Mtc3GZBmYdhpVO",
 ]
-
-const categories = ["All", "Music", "Tech", "Workshops", "Sports", "Arts & Culture"]
 
 const trendingEvents: Event[] = allEvents.slice(-3);
 
@@ -63,23 +60,6 @@ export function DiscoverPage() {
 
       </section>
 
-      {/* Categories */}
-      <section className="w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-md">
-        <div className="flex gap-sm overflow-x-auto pb-xs scrollbar-hide">
-          {categories.map((cat, i) => (
-            <button
-              key={cat}
-              className={
-                i === 0
-                  ? "whitespace-nowrap px-md py-2 rounded-full bg-primary-container text-on-primary-fixed font-label-lg border border-transparent"
-                  : "whitespace-nowrap px-md py-2 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-lg hover:border-primary hover:text-primary transition-colors"
-              }
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </section>
 
       {/* Trending */}
       <section className="w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
